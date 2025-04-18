@@ -1,0 +1,21 @@
+.section {
+  width: 100vw;
+  height: 100vh;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+.about-me {
+  background-color: #ffeecf;
+}
+
+.projects {
+  background-color: #cfeeff;
+}
+
+.contact-me {
+  background-color: #e8cffd;
+}

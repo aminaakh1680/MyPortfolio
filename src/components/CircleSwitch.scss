@@ -1,0 +1,44 @@
+.circle-switch {
+  position: fixed;
+  bottom: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 300px;
+  user-select: none;
+  pointer-events: all;
+  z-index: 1000;
+}
+
+.rotating-svg {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: center center;
+  transition: transform 0.3s ease;
+  pointer-events: all;
+}
+
+.center-button {
+  position: absolute;
+  top: 140px;
+  left: 150px;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #333;
+  color: white;
+  font-size: 24px;
+  border: none;
+  pointer-events: all;
+  cursor: pointer;
+  z-index: 1011;
+}
+
+.icon {
+  display: inline-block;
+  transform: translateY(-5px);
+}
