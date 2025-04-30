@@ -1,5 +1,7 @@
 import React from "react";
-import "../styles/sunMoon.scss";
+import "../components/sunMoon.scss";
+import moonImg from "../assets/moon.png";
+import sunImg from "../assets/sun.png";
 
 type Props = {
   theme: "light" | "dark";
@@ -8,31 +10,22 @@ type Props = {
 };
 
 const SunMoon: React.FC<Props> = ({ theme, scrollX, maxScroll }) => {
-  // 💡 커스텀 각도 비율 적용
-  // 예: 전체 scroll 진행에 따라 θ를 0 ~ 1.75π 까지만 (살짝 남겨둬서 Contact에서 지게)
-  const totalSections = 7;
-  const sectionWidth = window.innerWidth;
-  const scrollSectionRatio = scrollX / (sectionWidth * (totalSections - 1));
-  const theta = Math.PI * scrollSectionRatio;
+  const scrollRatio = Math.min(Math.max(scrollX / maxScroll, 0), 1);
+  const xPct = scrollRatio * 100;
+  const yPct = (1 - Math.sin(scrollRatio * Math.PI)) * 80 + 10;
 
-  // 🔁 방향 반전해서 왼쪽에서 해가 뜨게!
-  const reversedTheta = Math.PI - theta;
+  const iconSrc = theme === "light" ? sunImg : moonImg;
+  const altText = theme === "light" ? "Sun" : "Moon";
 
-  const centerX = 50;
-  const centerY = 100;
-  const radius = 60;
-
-  const x = centerX + Math.cos(reversedTheta) * 50;
-  const y = centerY - Math.sin(reversedTheta) * radius;
   return (
     <div
       className="sunmoon"
       style={{
-        left: `calc(${x}vw - 50px)`,
-        top: `calc(${y}vh - 50px)`,
+        left: `calc(${xPct}vw - 50px)`, // 100px 이미지 기준 50px 빼야 가운데 맞음
+        top: `calc(${yPct}vh - 50px)`,
       }}
     >
-      {theme === "light" ? "🌞" : "🌙"}
+      <img src={iconSrc} alt={altText} className={`sunmoon-icon ${theme}`} />
     </div>
   );
 };

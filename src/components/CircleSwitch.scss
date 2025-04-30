@@ -1,44 +1,99 @@
 .circle-switch {
   position: fixed;
-  bottom: -150px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 300px;
-  height: 300px;
-  user-select: none;
-  pointer-events: all;
+  bottom: 20px;
+  right: 20px;
+  width: 200px;
+  height: 200px;
   z-index: 1000;
-}
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-.rotating-svg {
-  width: 300px;
-  height: 300px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform-origin: center center;
-  transition: transform 0.3s ease;
-  pointer-events: all;
-}
+  .switch-wrapper {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, #5f4b3b, #2e211a);
+    border: 2px solid #c3a769;
+    box-shadow: 0 0 20px rgba(255, 215, 150, 0.2),
+      inset 0 0 10px rgba(0, 0, 0, 0.5);
+    overflow: visible;
+    pointer-events: all;
 
-.center-button {
-  position: absolute;
-  top: 140px;
-  left: 150px;
-  transform: translate(-50%, -50%);
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background-color: #333;
-  color: white;
-  font-size: 24px;
-  border: none;
-  pointer-events: all;
-  cursor: pointer;
-  z-index: 1011;
-}
+    .rotating-svg {
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform-origin: center center;
+      transition: transform 0.4s ease-in-out;
+      border-radius: 50%;
+      z-index: 1;
+      cursor: pointer;
 
-.icon {
-  display: inline-block;
-  transform: translateY(-5px);
+      g:hover path {
+        filter: brightness(1.1);
+        stroke: #fff5cc;
+        stroke-width: 1;
+      }
+    }
+
+    .fixed-arrow {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 24px;
+      color: #eec97d;
+      font-weight: bold;
+      text-shadow: 0 0 3px #fff5c0, 0 0 6px #e0b460;
+      z-index: 3;
+    }
+
+    // 중앙 모드 변경 버튼 (토글용)
+    .center-theme-toggle {
+      position: absolute;
+      top: 100px;
+      left: 100px;
+      transform: translate(-50%, -50%);
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 40% 40%, #f5e3b3, #e8c78c);
+      border: 2px solid #c8a35c;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3),
+        inset 0 0 4px rgba(255, 255, 255, 0.3),
+        inset -1px -1px 3px rgba(255, 230, 180, 0.2);
+      z-index: 5;
+      pointer-events: all;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease;
+      .center-icon {
+        width: 28px;
+        height: 28px;
+        object-fit: contain;
+        pointer-events: none;
+        filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5));
+      }
+
+      &:hover {
+        transform: translate(-50%, -50%) scale(1.08);
+        box-shadow: 0 0 10px rgba(255, 255, 200, 0.5);
+      }
+
+      .center-icon {
+        width: 28px;
+        height: 28px;
+        object-fit: contain;
+        pointer-events: none;
+        filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5));
+      }
+    }
+  }
 }

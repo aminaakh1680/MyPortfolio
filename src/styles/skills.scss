@@ -1,0 +1,151 @@
+.skills {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 0 16px;
+
+  .skills-container {
+    width: 85%;
+    max-width: 800px;
+    padding: 22px; // ✅ 원래 24px → 22px로 아주 살짝 줄임
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 18px;
+    box-shadow: 0 0 14px rgba(100, 80, 50, 0.08);
+    backdrop-filter: blur(8px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 300px; // ✅ 최소 높이 설정 (선택사항)
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #5a3e36;
+    margin: 0 0 20px 0; // ✅ 위 여백 0, 아래만 20px 남김
+  }
+
+  .skills-category-block {
+    width: 100%;
+    margin-bottom: 24px;
+
+    h3 {
+      font-size: 1.25rem;
+      color: #7c573b;
+      margin-bottom: 10px;
+      border-bottom: 1px dashed #bbb;
+      padding-bottom: 6px;
+    }
+  }
+
+  .skills-grid {
+    display: flex;
+    flex-wrap: nowrap; // ✅ 무조건 한 줄
+    gap: 16px;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .skill-card {
+    flex: 1 1 0; // ✅ 카드 크기 자동 조정
+    min-width: 120px; // ✅ 최소 폭
+    max-width: 180px; // ✅ 최대 폭
+    background: #fffaf4;
+    border-radius: 12px;
+    padding: 12px 14px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.03);
+    }
+
+    .skill-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #533c2c;
+      margin-bottom: 6px;
+    }
+
+    .progress-bar {
+      height: 6px;
+      background: #eee3d0;
+      border-radius: 5px;
+      overflow: hidden;
+
+      .progress-fill {
+        height: 100%;
+        background: linear-gradient(to right, #f6c28b, #e8b9ab);
+        border-radius: 5px;
+      }
+    }
+  }
+}
+
+// 📱 태블릿 반응형
+@media (max-width: 900px) {
+  .skills-container {
+    padding: 20px; // ✅ 조금 더 조여줌
+  }
+
+  h2 {
+    font-size: 1.7rem;
+    margin-bottom: 20px;
+  }
+
+  .skills-category-block h3 {
+    font-size: 1.1rem;
+  }
+
+  .skills-grid {
+    flex-wrap: wrap; // ✅ 모바일에서는 줄바꿈 허용
+    justify-content: center;
+  }
+
+  .skill-card {
+    min-width: 140px;
+    max-width: 160px;
+  }
+}
+
+// 📱 모바일 반응형
+@media (max-width: 600px) {
+  .skills {
+    padding: 0 16px;
+  }
+
+  .skills-container {
+    padding: 16px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+  }
+
+  .skills-category-block h3 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+
+  .skills-grid {
+    gap: 10px;
+  }
+
+  .skill-card {
+    min-width: 120px;
+    max-width: 140px;
+    padding: 10px 12px;
+
+    .skill-header {
+      font-size: 0.85rem;
+    }
+
+    .progress-bar {
+      height: 5px;
+    }
+  }
+}

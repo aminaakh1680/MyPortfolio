@@ -1,0 +1,19 @@
+.cloud-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.cloud {
+  position: absolute;
+  transition: left 0.5s ease-out, top 0.5s ease-out;
+  filter: drop-shadow(
+    0 5px 10px rgba(0, 0, 0, 0.15)
+  ); // ✅ 그림자 추가 (구름 밑에 부드럽게)
+  user-select: none; // ✅ 드래그 안 되게
+}

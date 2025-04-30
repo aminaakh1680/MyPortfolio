@@ -1,0 +1,111 @@
+.app-container {
+  background-image: url("/your/background-image.jpg"); // ✅ 배경 사진 유지
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; // ✅ 부드럽게 고정
+
+  &.light {
+    background-color: rgba(255, 255, 255, 0.4); // ✅ 밝은 투명 필터
+    backdrop-filter: blur(4px); // ✅ 약간 흐림 추가
+    color: #3e2f2f;
+
+    .skills-container,
+    .about-wrapper,
+    .contact-container {
+      background: rgba(255, 255, 255, 0.4);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(8px);
+    }
+
+    .stack-card {
+      background: rgba(255, 255, 255, 0.85);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .stack-card.expanded {
+      background: #ffffff;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+    }
+
+    .retrospective-box {
+      background: #ffffffee;
+      border: 1px solid #ddd;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+
+      h4,
+      p {
+        color: #333;
+      }
+    }
+
+    h2,
+    h3,
+    p,
+    li,
+    a {
+      color: #3e2f2f;
+    }
+  }
+
+  &.dark {
+    background-color: rgba(0, 0, 0, 0.5); // ✅ 어두운 투명 필터
+    backdrop-filter: blur(4px); // ✅ 밤에 살짝 흐릿하게
+    color: #eeeeee;
+
+    .skills-container,
+    .about-wrapper,
+    .contact-container {
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(6px);
+    }
+
+    .stack-card {
+      background: rgba(40, 40, 40, 0.8);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .stack-card.expanded {
+      background: #1f1f1f;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .card-overlay {
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .detail-button {
+      background: #ffffff33;
+      color: #eee;
+
+      &:hover {
+        background: #ffffff55;
+      }
+    }
+
+    .retrospective-box {
+      background: rgba(40, 40, 40, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+
+      h4,
+      p {
+        color: #cccccc;
+      }
+    }
+
+    h2,
+    h3,
+    p,
+    li {
+      color: #dddddd;
+    }
+
+    a {
+      color: #80bfff;
+    }
+  }
+}
